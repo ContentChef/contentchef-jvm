@@ -1,0 +1,25 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+apply from: '../dependencies.gradle'
+
+dependencies {
+    implementation libraries.kotlin
+    compileOnly libraries.json
+    compileOnly libraries.log4j
+    compileOnly libraries.slf4j
+
+    testImplementation libraries.junit
+    testImplementation libraries.mockk
+    testCompileOnly libraries.json
+}
+
+ext {
+    publishArtifactId = 'contentchef-jvm-common'
+    publishArtifactDescription = "ContentChef's JVM common SDK stuff - https://www.contentchef.io"
+}
+
+apply from: '../publish.gradle'
+
+group publishGroupId
+version publishVersion

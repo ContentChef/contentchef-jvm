@@ -1,0 +1,1 @@
+include ':contentchef-jvm-callback', ':contentchef-jvm-common', ':sampleapp', ':sampleapp-android', ':contentchef-jvm-callback-common', ':contentchef-jvm-callback-android'
