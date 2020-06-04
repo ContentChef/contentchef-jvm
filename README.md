@@ -28,13 +28,15 @@ You can use the `getContent()` method to collect a specific content by its own `
 
 *PUBLISHING_CHANNEL* can be retrieved from your [ContentChef's dashboard](https://app.contentchef.io/).
 
+*PREVIEW_API_KEY* and *ONLINE_API_KEY* must be used to retrieve contents from the `PreviewChannel` and the `OnlineChannel` respectively. Both the api keys can be retrieved from your [ContentChef's dashboard](https://app.contentchef.io/).
+
 Retrieve the *new-header* content from the _live_ environment:
 
     val onlineContentRequestData = OnlineContentRequestData(  
         "new-header"  
     )
     
-    val onlineChannel = contentChef.getOnlineChannel(PUBLISHING_CHANNEL)
+    val onlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL)
     
     onlineChannel.getContent(onlineContentRequestData, {  
       println("onSuccess $it")  
@@ -50,7 +52,7 @@ Preview the *new-header* content in a given future date:
         "new-header", targetDate
     )
     
-    val previewChannel = contentChef.getPreviewChannel(PUBLISHING_CHANNEL)
+    val previewChannel = contentChef.getPreviewChannel(PREVIEW_API_KEY, PUBLISHING_CHANNEL)
     
     previewChannel.getContent(previewContentRequestData, {  
       println("onSuccess $it")  
@@ -65,7 +67,7 @@ Search for all the contents with definition as *default-header* in the _live_ en
       take = 10  
     )
     
-    val onlineChannel = contentChef.getOnlineChannel(PUBLISHING_CHANNEL)
+    val onlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL)
     
     onlineChannel.search(searchOnlineRequestData, {  
       println("onSuccess $it")  
@@ -83,7 +85,7 @@ Preview all the contents with definition as *default-header* in a given future d
       take = 10  
     )
     
-    val previewChannel = contentChef.getPreviewChannel(PUBLISHING_CHANNEL)
+    val previewChannel = contentChef.getPreviewChannel(PREVIEW_API_KEY, PUBLISHING_CHANNEL)
     
     previewChannel.search(searchPreviewRequestData, {  
       println("onSuccess $it")  

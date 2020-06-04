@@ -27,8 +27,8 @@ class Main {
                 ), true
             )
 
-            onlineChannel = contentChef.getOnlineChannel(PUBLISHING_CHANNEL)
-            previewChannel = contentChef.getPreviewChannel(PUBLISHING_CHANNEL)
+            onlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL)
+            previewChannel = contentChef.getPreviewChannel(PREVIEW_API_KEY, PUBLISHING_CHANNEL)
 
             val previewContentRequestData = PreviewContentRequestData(
                 "new-header", Date()

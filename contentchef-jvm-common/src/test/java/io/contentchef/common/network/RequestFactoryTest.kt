@@ -16,16 +16,22 @@ class RequestFactoryTest {
 
     @MockK
     lateinit var connectionFactoryMock: ConnectionFactory
+
     @MockK
     lateinit var connectionStreamReaderMock: ConnectionStreamReader
+
     @MockK
     lateinit var loggerMock: Logger
+
     @MockK
     lateinit var httpURLConnectionMock: HttpURLConnection
+
     @MockK
     lateinit var onItemSuccessMock: ((ContentChefItemResponse<JSONObject>) -> Unit)
+
     @MockK
     lateinit var onSearchSuccessMock: ((ContentChefSearchResponse<JSONObject>) -> Unit)
+
     @MockK
     lateinit var onErrorMock: ((Throwable) -> Unit)
 
@@ -86,7 +92,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns VALID_ONLINE_CONTENT_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -113,7 +119,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns GENERIC_ERROR_500_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -148,7 +154,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns INVALID_SPACE_ID_LENGTH_400_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -182,7 +188,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns INVALID_TARGET_DATE_400_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -219,7 +225,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns INVALID_TAKE_MIN_VALUE_400_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -253,7 +259,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns MISSING_AUTHENTICATION_TOKEN_403_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -287,7 +293,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns INVALID_JSON_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -318,7 +324,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns VALID_ONLINE_CONTENT_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
@@ -345,7 +351,7 @@ class RequestFactoryTest {
         every { connectionStreamReaderMock.getContentAsString(any()) } returns VALID_ONLINE_SEARCH_CHEF_EXAMPLE_RESPONSE
 
         val request = requestFactory.generateRequest(
-            ContentChefRequestData("", HttpMethod.GET, emptyMap()),
+            ContentChefRequestData("", HttpMethod.GET, emptyMap(), ""),
             onItemSuccessMock,
             onSearchSuccessMock,
             onErrorMock
