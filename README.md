@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/ContentChef_logo_banner.svg" height="128"/>
+</div>
+
 # ContentChef Java/Kotlin/Android SDK
 
 Welcome to [ContentChef API-First CMS's](https://www.contentchef.io/) Java/Kotlin/Android SDK.
