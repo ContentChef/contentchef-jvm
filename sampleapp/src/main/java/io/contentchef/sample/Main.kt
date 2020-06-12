@@ -23,7 +23,7 @@ class Main {
 
             contentChef = CallbackContentChefProvider.getContentChef(
                 ContentChefEnvironmentConfiguration(
-                    ContentChefEnvironment.LIVE, SPACE_ID
+                    ContentChefEnvironment.LIVE, ONLINE_API_KEY, PREVIEW_API_KEY, SPACE_ID
                 ), true
             )
 

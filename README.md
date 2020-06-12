@@ -10,11 +10,11 @@ Create your ContentChef instance like this:
 
     val contentChef = CallbackContentChefProvider.getContentChef(  
         ContentChefEnvironmentConfiguration(  
-            ContentChefEnvironment.LIVE, SPACE_ID  
+            ContentChefEnvironment.LIVE, ONLINE_API_KEY, PREVIEW_API_KEY, SPACE_ID  
       )  
     )
 
-*SPACE_ID* can be retrieved from your [ContentChef's dashboard](https://app.contentchef.io/).
+*ONLINE_API_KEY*, *PREVIEW_API_KEY* and *SPACE_ID* can be retrieved from your [ContentChef's dashboard](https://app.contentchef.io/).
 
 You can now use your `contentChef` instance to get the channel you want to use to retrieve info: you have two channels, the `OnlineChannel` and the `PreviewChannel`.
 

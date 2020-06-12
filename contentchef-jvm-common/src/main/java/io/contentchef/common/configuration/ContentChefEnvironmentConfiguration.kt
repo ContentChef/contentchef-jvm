@@ -2,6 +2,8 @@ package io.contentchef.common.configuration
 
 /**
  * Used to configure a [ContentChef] instance using a [ContentChefProvider]
+ * [onlineApiKey] is the api key used for online channels
+ * [previewApiKey] is the api key used for preview channels
  * [contentChefEnvironment] chosen ContentChef environment
  */
 class ContentChefEnvironmentConfiguration @JvmOverloads
@@ -11,6 +13,8 @@ class ContentChefEnvironmentConfiguration @JvmOverloads
  */
 constructor(
     val contentChefEnvironment: ContentChefEnvironment,
+    val onlineApiKey: String,
+    val previewApiKey: String,
     private val spaceId: String,
     private val contentChefBaseUrl: String = "https://api.contentchef.io"
 ) {

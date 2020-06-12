@@ -23,6 +23,7 @@ internal class CallbackContentChef constructor(
                 ContentChefEnvironmentConfiguration.Companion.WebService.PREVIEW_SEARCH,
                 publishingChannel
             ),
+            contentChefEnvironmentConfiguration.previewApiKey,
             requestFactory,
             requestExecutor
         )
@@ -41,6 +42,7 @@ internal class CallbackContentChef constructor(
                 ContentChefEnvironmentConfiguration.Companion.WebService.ONLINE_SEARCH,
                 publishingChannel
             ),
+            contentChefEnvironmentConfiguration.onlineApiKey,
             requestFactory,
             requestExecutor
         )
