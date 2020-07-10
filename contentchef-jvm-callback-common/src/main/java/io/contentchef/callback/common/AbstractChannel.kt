@@ -16,6 +16,7 @@ import org.json.JSONObject
 internal open class AbstractChannel<C : RequestData, S : RequestData>(
     private val contentUrl: String,
     private val searchUrl: String,
+    private val apiKey: String,
     private val requestFactory: RequestFactory,
     private val requestExecutor: RequestExecutor
 ) : Channel<C, S> {
@@ -39,6 +40,7 @@ internal open class AbstractChannel<C : RequestData, S : RequestData>(
         executeRequest(
             contentUrl,
             contentRequestData.asParametersMap(),
+            apiKey,
             mapper,
             onItemSuccess = onSuccess,
             onError = onError
@@ -62,6 +64,7 @@ internal open class AbstractChannel<C : RequestData, S : RequestData>(
         executeRequest(
             searchUrl,
             searchRequestData.asParametersMap(),
+            apiKey,
             mapper,
             onSearchSuccess = onSuccess,
             onError = onError
@@ -71,6 +74,7 @@ internal open class AbstractChannel<C : RequestData, S : RequestData>(
     private fun <K> executeRequest(
         url: String,
         requestParametersMap: Map<String, String>,
+        apiKey: String,
         mapper: (JSONObject) -> K,
         onItemSuccess: ((responseContent: ContentChefItemResponse<K>) -> Unit)? = null,
         onSearchSuccess: ((responseContent: ContentChefSearchResponse<K>) -> Unit)? = null,
@@ -79,7 +83,8 @@ internal open class AbstractChannel<C : RequestData, S : RequestData>(
         val contentChefRequestData = ContentChefRequestData(
             url,
             HttpMethod.GET,
-            requestParametersMap
+            requestParametersMap,
+            apiKey
         )
         val request =
             requestFactory.generateRequest(contentChefRequestData, { contentChefItemResponse ->
