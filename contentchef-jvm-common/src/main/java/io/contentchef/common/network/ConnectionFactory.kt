@@ -16,6 +16,10 @@ class ConnectionFactory(
     private val logger: Logger
 ) {
 
+    companion object {
+        private const val HEADER_CONTENT_CHEF_API_KEY = "X-Chef-Key"
+    }
+
     /**
      * Generate a [HttpURLConnection] which can be used to execute a network request with [contentChefRequestData].
      * Can throw [IOException]
@@ -53,6 +57,10 @@ class ConnectionFactory(
             val url = URL(urlWithParams)
             val connection = url.openConnection() as HttpURLConnection
             connection.requestMethod = contentChefRequestData.method.name
+            connection.setRequestProperty(
+                HEADER_CONTENT_CHEF_API_KEY,
+                contentChefRequestData.apiKey
+            )
             return connection
 
         } catch (e: IOException) {

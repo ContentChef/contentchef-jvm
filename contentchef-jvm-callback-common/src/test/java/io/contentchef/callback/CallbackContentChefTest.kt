@@ -86,6 +86,8 @@ class CallbackContentChefTest {
 
     private fun generateContentChefMocksBasedOn(contentChefEnvironment: ContentChefEnvironment) {
         every { contentChefEnvironmentConfigurationMock.contentChefEnvironment } returns contentChefEnvironment
+        every { contentChefEnvironmentConfigurationMock.onlineApiKey } returns ""
+        every { contentChefEnvironmentConfigurationMock.previewApiKey } returns ""
 
         every {
             contentChefEnvironmentConfigurationMock.generateWebserviceURL(
