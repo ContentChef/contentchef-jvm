@@ -15,7 +15,7 @@ ext.versions = [
         material                     : '1.0.0',
         rxAndroid                    : '2.1.1',
 
-        androidGradlePlugin          : '3.4.2',
+        androidGradlePlugin          : '4.0.1',
         bintrayPlugin                : '1.8.4',
         mavenPlugin                  : '2.1',
 

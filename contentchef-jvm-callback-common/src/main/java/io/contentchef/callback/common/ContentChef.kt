@@ -12,15 +12,17 @@ interface ContentChef {
 
     /**
      * Using the [PreviewChannel] you can retrieve contents which are in in both stage and live state and even contents that are not visible in the current date
+     * [previewApiKey] is the api key required for the [PreviewChannel]
      * [publishingChannel] chosen publishingChannel
      */
-    fun getPreviewChannel(publishingChannel: String): PreviewChannel
+    fun getPreviewChannel(previewApiKey: String, publishingChannel: String): PreviewChannel
 
     /**
      * Using the [OnlineChannel] you can retrieve contents which are in live state and which are actually visible
+     * [onlineApiKey] is the api key required for the [OnlineChannel]
      * [publishingChannel] chosen publishingChannel
      */
-    fun getOnlineChannel(publishingChannel: String): OnlineChannel
+    fun getOnlineChannel(onlineApiKey: String, publishingChannel: String): OnlineChannel
 
 }
 

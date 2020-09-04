@@ -2,7 +2,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 ext {
-    publishVersion = '1.1.0'
+    publishVersion = '1.2.0'
     publishGroupId = 'io.contentchef'
 }
 

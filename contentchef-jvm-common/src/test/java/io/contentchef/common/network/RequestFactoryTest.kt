@@ -16,16 +16,22 @@ class RequestFactoryTest {
 
     @MockK
     lateinit var connectionFactoryMock: ConnectionFactory
+
     @MockK
     lateinit var connectionStreamReaderMock: ConnectionStreamReader
+
     @MockK
     lateinit var loggerMock: Logger
+
     @MockK
     lateinit var httpURLConnectionMock: HttpURLConnection
+
     @MockK
     lateinit var onItemSuccessMock: ((ContentChefItemResponse<JSONObject>) -> Unit)
+
     @MockK
     lateinit var onSearchSuccessMock: ((ContentChefSearchResponse<JSONObject>) -> Unit)
+
     @MockK
     lateinit var onErrorMock: ((Throwable) -> Unit)
 
