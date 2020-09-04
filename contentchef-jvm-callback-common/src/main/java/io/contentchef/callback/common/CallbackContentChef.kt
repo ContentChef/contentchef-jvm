@@ -13,7 +13,10 @@ internal class CallbackContentChef constructor(
     private val requestExecutor: RequestExecutor
 ) : ContentChef {
 
-    override fun getPreviewChannel(publishingChannel: String): PreviewChannel {
+    override fun getPreviewChannel(
+        previewApiKey: String,
+        publishingChannel: String
+    ): PreviewChannel {
         return AbstractChannel(
             contentChefEnvironmentConfiguration.generateWebserviceURL(
                 ContentChefEnvironmentConfiguration.Companion.WebService.PREVIEW_CONTENT,
@@ -23,13 +26,13 @@ internal class CallbackContentChef constructor(
                 ContentChefEnvironmentConfiguration.Companion.WebService.PREVIEW_SEARCH,
                 publishingChannel
             ),
-            contentChefEnvironmentConfiguration.previewApiKey,
+            previewApiKey,
             requestFactory,
             requestExecutor
         )
     }
 
-    override fun getOnlineChannel(publishingChannel: String): OnlineChannel {
+    override fun getOnlineChannel(onlineApiKey: String, publishingChannel: String): OnlineChannel {
         require(contentChefEnvironmentConfiguration.contentChefEnvironment == ContentChefEnvironment.LIVE) {
             "Online channel can only be used with LIVE environment setup"
         }
@@ -42,7 +45,7 @@ internal class CallbackContentChef constructor(
                 ContentChefEnvironmentConfiguration.Companion.WebService.ONLINE_SEARCH,
                 publishingChannel
             ),
-            contentChefEnvironmentConfiguration.onlineApiKey,
+            onlineApiKey,
             requestFactory,
             requestExecutor
         )

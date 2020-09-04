@@ -41,16 +41,22 @@ class CallbackContentChefTest {
 
     @MockK
     lateinit var contentChefEnvironmentConfigurationMock: ContentChefEnvironmentConfiguration
+
     @MockK
     lateinit var connectionFactoryMock: ConnectionFactory
+
     @MockK
     lateinit var connectionStreamReaderMock: ConnectionStreamReader
+
     @MockK
     lateinit var loggerMock: Logger
+
     @MockK
     lateinit var httpURLConnectionMock: HttpURLConnection
+
     @MockK
     lateinit var onSuccessJSONObjectMock: ((ContentChefItemResponse<JSONObject>) -> Unit)
+
     @MockK
     lateinit var onErrorMock: ((Throwable) -> Unit)
     private lateinit var requestFactory: RequestFactory
@@ -86,8 +92,6 @@ class CallbackContentChefTest {
 
     private fun generateContentChefMocksBasedOn(contentChefEnvironment: ContentChefEnvironment) {
         every { contentChefEnvironmentConfigurationMock.contentChefEnvironment } returns contentChefEnvironment
-        every { contentChefEnvironmentConfigurationMock.onlineApiKey } returns ""
-        every { contentChefEnvironmentConfigurationMock.previewApiKey } returns ""
 
         every {
             contentChefEnvironmentConfigurationMock.generateWebserviceURL(
@@ -102,7 +106,7 @@ class CallbackContentChefTest {
             SequentialRequestExecutor
         )
 
-        onlineChannel = contentChef.getOnlineChannel("TEST_PUBLISHING_CHANNEL")
+        onlineChannel = contentChef.getOnlineChannel("TEST_API_KEY", "TEST_PUBLISHING_CHANNEL")
     }
 
     @Test(expected = IllegalArgumentException::class)
