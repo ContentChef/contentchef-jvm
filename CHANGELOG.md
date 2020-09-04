@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.2.0] - 2020-09-04
 ### Changed
-- `previewApiKey` must now be provided to `getPreviewChannel() instead of `ContentChefEnvironmentConfiguration`
+- `previewApiKey` must now be provided to `getPreviewChannel()` instead of `ContentChefEnvironmentConfiguration`
 - `onlineApiKey` must now be provided to `getOnlineChannel()` instead of `ContentChefEnvironmentConfiguration`
 
 ## [1.1.0] - 2020-07-10
