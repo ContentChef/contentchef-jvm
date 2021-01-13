@@ -101,27 +101,27 @@ Look at *sampleapp* and *sampleapp-android* in the source code for more examples
 
 ## Installation
 
-Gradle is the only supported build configuration, so just add the dependency to your project `build.gradle` file.
+To add ContentChef to your project you can use Maven or Gradle.
 
 **Java/Kotlin:**
 
-    dependencies {
-      implementation 'io.contentchef:contentchef-jvm-callback:x.y.z'
-    }
+If using Maven, add this to your `pom.xml` dependencies:
+
+    <dependency>
+        <groupId>io.contentchef</groupId>
+        <artifactId>contentchef-jvm-callback</artifactId>
+        <version>x.y.z</version>
+    </dependency>
+
+If using Gradle, add this to your `build.gradle` dependencies:
+
+    implementation 'io.contentchef:contentchef-jvm-callback:x.y.z'
 
 **Android**
 
-    dependencies {
-      implementation 'io.contentchef:contentchef-jvm-callback-android:x.y.z'
-    }
+Add this to your `build.gradle` dependencies:
 
-If you are not using JCenter add it to your main `build.gradle` file's repositories:
-
-
-    repositories {
-        jcenter()
-    }
-
+    implementation 'io.contentchef:contentchef-jvm-callback-android:x.y.z'
 
 ## Dependencies
 
