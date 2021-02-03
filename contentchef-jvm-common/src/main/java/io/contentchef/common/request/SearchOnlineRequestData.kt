@@ -12,7 +12,7 @@ import io.contentchef.common.util.isNotNullNorEmpty
  * [take] the count of content to be retrieved
  * [propFilters] the filters on indexed fields to be applied to published contents. null to avoid applying the filter
  */
-data class SearchOnlineRequestData(
+data class SearchOnlineRequestData @JvmOverloads constructor(
     val contentDefinitions: List<String>? = null,
     val repositories: List<String>? = null,
     val tags: List<String>? = null,

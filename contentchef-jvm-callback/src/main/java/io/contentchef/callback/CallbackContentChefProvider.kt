@@ -12,6 +12,7 @@ object CallbackContentChefProvider {
     /**
      * Creates a [ContentChef] instance using the provided [contentChefEnvironmentConfiguration]
      */
+    @JvmStatic
     fun getContentChef(
         contentChefEnvironmentConfiguration: ContentChefEnvironmentConfiguration,
         logEnabled: Boolean
