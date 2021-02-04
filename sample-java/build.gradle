@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+apply from: '../dependencies.gradle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly libraries.kotlin
+
+    implementation project(':contentchef-jvm-callback')
+}

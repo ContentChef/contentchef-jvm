@@ -12,7 +12,8 @@
 /captures
 .externalNativeBuild
 .idea
-gradle/wrapper
 sampleapp/build
 contentchef-callback/build
 contentchef-jvm-callback/build
+sample-java/build
+sample-kt/build

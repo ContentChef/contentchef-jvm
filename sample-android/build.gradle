@@ -6,7 +6,6 @@ apply from: '../dependencies.gradle'
 
 android {
     compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
 
     defaultConfig {
         applicationId "io.contentchef.android.sample"

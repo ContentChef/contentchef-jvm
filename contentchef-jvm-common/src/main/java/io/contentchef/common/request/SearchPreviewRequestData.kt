@@ -15,7 +15,8 @@ import java.util.*
  * [take] the count of content to be retrieved
  * [propFilters] the filters on indexed fields to be applied to published contents. null to avoid applying the filter
  */
-data class SearchPreviewRequestData(
+
+data class SearchPreviewRequestData @JvmOverloads constructor(
     val contentDefinitions: List<String>? = null,
     val repositories: List<String>? = null,
     val targetDate: Date? = null,
