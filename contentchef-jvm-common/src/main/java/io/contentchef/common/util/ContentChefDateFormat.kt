@@ -17,10 +17,12 @@ object ContentChefDateFormat {
         return SimpleDateFormat(DATE_TIME_PATTERN, LOCALE)
     }
 
+    @JvmStatic
     fun formatDate(date: Date): String {
         return getDateFormat().format(date)
     }
 
+    @JvmStatic
     fun parseDate(stringDate: String): Date? {
         return try {
             getDateFormat().parse(stringDate)
