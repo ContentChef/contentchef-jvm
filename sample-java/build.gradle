@@ -4,8 +4,6 @@ plugins {
 
 apply from: '../dependencies.gradle'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-
 repositories {
     mavenCentral()
 }

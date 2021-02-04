@@ -1,6 +1,4 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-apply from: 'dependencies.gradle'
-
 buildscript {
     // Gradle will not find vars defined in an external file when referring to them
     // in the buildscript block, unless you link it from the buildscript block, too.
@@ -9,15 +7,14 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
     }
+
     dependencies {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath gradlePlugins.kotlin
         classpath gradlePlugins.android
         classpath gradlePlugins.bintrayPlugin
-        classpath gradlePlugins.mavenPlugin
     }
 }
 
@@ -25,7 +22,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 
