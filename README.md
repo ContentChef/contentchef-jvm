@@ -2,6 +2,8 @@
   <img src="assets/ContentChef_logo_banner.svg" height="128"/>
 </div>
 
+![buildStatusBadge](https://github.com/contentchef/contentchef-jvm/workflows/Build/badge.svg)
+
 # ContentChef Java/Kotlin/Android SDK
 
 Welcome to [ContentChef API-First CMS's](https://www.contentchef.io/) Java/Kotlin/Android SDK.
