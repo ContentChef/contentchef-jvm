@@ -16,6 +16,7 @@ ext.versions = [
 
         androidGradlePlugin          : '4.1.1',
         gradleNexusPublishPlugin     : '1.1.0',
+        dokkaPlugin                  : '1.4.30',
 
         json                         : '20190722',
 
@@ -32,7 +33,8 @@ ext.versions = [
 
 ext.gradlePlugins = [
         android          : "com.android.tools.build:gradle:$versions.androidGradlePlugin",
-        kotlin           : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        kotlin           : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        dokka            : "org.jetbrains.dokka:dokka-gradle-plugin:$versions.dokkaPlugin"
 ]
 
 ext.libraries = [

@@ -6,8 +6,10 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 
     dependencies {
@@ -15,6 +17,7 @@ buildscript {
         // in the individual module build.gradle files
         classpath gradlePlugins.kotlin
         classpath gradlePlugins.android
+        classpath gradlePlugins.dokka
     }
 }
 
@@ -25,7 +28,10 @@ plugins {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 }
 
