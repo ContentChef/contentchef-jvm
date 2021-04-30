@@ -15,11 +15,8 @@ dependencies {
 }
 
 ext {
-    publishArtifactId = 'contentchef-jvm-callback'
-    publishArtifactDescription = "ContentChef's JVM Java/Kotlin SDK - https://www.contentchef.io"
+    PUBLISH_ARTIFACT_ID = 'contentchef-jvm-callback'
+    PUBLISH_ARTIFACT_DESCRIPTION = "ContentChef's JVM Java/Kotlin SDK - https://www.contentchef.io"
 }
 
-apply from: '../publish.gradle'
-
-group publishGroupId
-version publishVersion
+apply from: "${rootProject.projectDir}/publish_scripts/publish-module.gradle"
