@@ -7,6 +7,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -14,8 +15,11 @@ buildscript {
         // in the individual module build.gradle files
         classpath gradlePlugins.kotlin
         classpath gradlePlugins.android
-        classpath gradlePlugins.bintrayPlugin
     }
+}
+
+plugins {
+    id("io.github.gradle-nexus.publish-plugin") version '1.1.0'
 }
 
 allprojects {
@@ -28,3 +32,5 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+apply from: "${rootDir}/publish_scripts/publish-root.gradle"
