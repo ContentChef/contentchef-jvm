@@ -18,6 +18,10 @@ class Main {
         private lateinit var onlineChannel: OnlineChannel
         private lateinit var previewChannel: PreviewChannel
 
+        //LOCALIZED CHANNELS
+        private lateinit var enOnlineChannel: OnlineChannel
+        private lateinit var itOnlineChannel: OnlineChannel
+
         @JvmStatic
         fun main(args: Array<String>) {
 
@@ -134,6 +138,25 @@ class Main {
                 SampleHeader(it.getString("header"))
             })
 
+            //LOCALIZED CONTENT EXAMPLE
+            enOnlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL, locale = Locale.ENGLISH)
+            itOnlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL, locale = Locale.ITALY)
+
+            val localizedHeaderOnlineContentRequestData = OnlineContentRequestData(
+                "test-localized-header"
+            )
+
+            enOnlineChannel.getContent(localizedHeaderOnlineContentRequestData, {
+                println("onSuccess $it")
+            }, {
+                println("onError $it")
+            })
+
+            itOnlineChannel.getContent(localizedHeaderOnlineContentRequestData, {
+                println("onSuccess $it")
+            }, {
+                println("onError $it")
+            })
         }
     }
 
