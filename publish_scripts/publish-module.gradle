@@ -27,7 +27,7 @@ artifacts {
 }
 
 def PUBLISH_GROUP_ID = 'io.contentchef'
-def PUBLISH_VERSION = '1.2.2'
+def PUBLISH_VERSION = '1.3.0'
 group = PUBLISH_GROUP_ID
 version = PUBLISH_VERSION
 
