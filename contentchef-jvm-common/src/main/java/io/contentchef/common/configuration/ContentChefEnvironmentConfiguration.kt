@@ -1,5 +1,7 @@
 package io.contentchef.common.configuration
 
+import java.util.Locale
+
 /**
  * Used to configure a [ContentChef] instance using a [ContentChefProvider]
  * [contentChefEnvironment] chosen ContentChef environment
@@ -28,10 +30,18 @@ constructor(
         }
     }
 
-    fun generateWebserviceURL(webService: WebService, publishingChannel: String): String {
+    fun generateWebserviceURL(webService: WebService, publishingChannel: String, locale: Locale? = null): String {
         val finalUrl = contentChefBaseUrl.plus(webService.urlTemplate)
-        return finalUrl.replace(ENVIRONMENT_PLACEHOLDER, contentChefEnvironment.urlPathValue)
+        finalUrl.replace(ENVIRONMENT_PLACEHOLDER, contentChefEnvironment.urlPathValue)
             .replace(SPACE_ID_PLACEHOLDER, spaceId)
             .replace(PUBLISHING_CHANNEL_PLACEHOLDER, publishingChannel)
+            .run {
+                return if (locale != null) {
+                    val localeString = locale.toString()
+                    plus("/$localeString")
+                } else {
+                    this
+                }
+            }
     }
 }
