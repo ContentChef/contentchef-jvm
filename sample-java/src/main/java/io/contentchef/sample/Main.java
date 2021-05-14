@@ -2,6 +2,7 @@ package io.contentchef.sample;
 
 import java.util.Collections;
 import java.util.Date;
+import java.util.Locale;
 
 import io.contentchef.callback.CallbackContentChefProvider;
 import io.contentchef.callback.common.Channel;
@@ -42,8 +43,8 @@ class Main {
                 ), true
         );
 
-        Channel<OnlineContentRequestData, SearchOnlineRequestData> onlineChannel = contentChef.getOnlineChannel(ContentChefConfiguration.ONLINE_API_KEY, ContentChefConfiguration.PUBLISHING_CHANNEL);
-        Channel<PreviewContentRequestData, SearchPreviewRequestData> previewChannel = contentChef.getPreviewChannel(ContentChefConfiguration.PREVIEW_API_KEY, ContentChefConfiguration.PUBLISHING_CHANNEL);
+        Channel<OnlineContentRequestData, SearchOnlineRequestData> onlineChannel = contentChef.getOnlineChannel(ContentChefConfiguration.ONLINE_API_KEY, ContentChefConfiguration.PUBLISHING_CHANNEL, null);
+        Channel<PreviewContentRequestData, SearchPreviewRequestData> previewChannel = contentChef.getPreviewChannel(ContentChefConfiguration.PREVIEW_API_KEY, ContentChefConfiguration.PUBLISHING_CHANNEL, null);
 
         PreviewContentRequestData previewContentRequestData = new PreviewContentRequestData(
                 "new-header", new Date()
@@ -149,6 +150,26 @@ class Main {
                 jsonObjectContentChefSearchResponse -> printSuccess(jsonObjectContentChefSearchResponse),
                 throwable -> printError(throwable),
                 jsonObject -> new SampleHeader(jsonObject.getString("header"))
+        );
+
+        //LOCALIZED CONTENT EXAMPLE
+        Channel<OnlineContentRequestData, SearchOnlineRequestData> enOnlineChannel = contentChef.getOnlineChannel(ContentChefConfiguration.ONLINE_API_KEY, ContentChefConfiguration.PUBLISHING_CHANNEL, Locale.ENGLISH);
+        Channel<OnlineContentRequestData, SearchOnlineRequestData> itOnlineChannel = contentChef.getOnlineChannel(ContentChefConfiguration.ONLINE_API_KEY, ContentChefConfiguration.PUBLISHING_CHANNEL, Locale.ITALY);
+
+        OnlineContentRequestData localizedHeaderOnlineContentRequestData = new OnlineContentRequestData(
+                "test-localized-header"
+        );
+
+        enOnlineChannel.getContent(
+                localizedHeaderOnlineContentRequestData,
+                jsonObjectContentChefItemResponse -> printSuccess(jsonObjectContentChefItemResponse),
+                throwable -> printError(throwable)
+        );
+
+        itOnlineChannel.getContent(
+                localizedHeaderOnlineContentRequestData,
+                jsonObjectContentChefItemResponse -> printSuccess(jsonObjectContentChefItemResponse),
+                throwable -> printError(throwable)
         );
 
     }

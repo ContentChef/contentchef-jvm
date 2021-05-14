@@ -99,7 +99,30 @@ Preview all the contents with definition as *default-header* in a given future d
       println("onError $it")  
     })
 
-Look at *sampleapp* and *sampleapp-android* in the source code for more examples.
+Retrieve localized content as *localized-header* from the _live_ environment:
+
+```kotlin
+val enOnlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL, locale = Locale.ENGLISH)
+val itOnlineChannel = contentChef.getOnlineChannel(ONLINE_API_KEY, PUBLISHING_CHANNEL, locale = Locale.ITALY)
+
+val localizedHeaderOnlineContentRequestData = OnlineContentRequestData(
+    "localized-header"
+)
+
+enOnlineChannel.getContent(localizedHeaderOnlineContentRequestData, {
+    println("onSuccess $it")
+}, { 
+    println("onError $it") 
+})
+
+itOnlineChannel.getContent(localizedHeaderOnlineContentRequestData, {
+    println("onSuccess $it")
+}, {
+    println("onError $it") 
+})
+```
+
+Look at *sample-java*, *sample-kt* and *sample-android* in the source code for more examples.
 
 ## Installation
 
