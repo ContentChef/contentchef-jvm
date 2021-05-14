@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 ### Added
 - A `Locale` can now be provided to `getPreviewChannel` and `getOnlineChannel` to retrieve localized content
+### Fixed
+- Fix `NullPointerException` when a 404 response happens. Now `ContentNotFoundException` it's correctly used 
 
 ## [1.2.2] - 2021-04-30
 ### Added
